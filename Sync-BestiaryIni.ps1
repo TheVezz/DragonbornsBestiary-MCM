@@ -1,5 +1,5 @@
 # Scrive Data/Dragonborns Bestiary.ini dai valori MCM (MCM/Settings/DragonbornsBestiaryMCM.ini).
-# Hotkey plugin = 0 (l'hotkey reale è gestita dall'MCM). Poi riavvia SKSE.
+# Hotkey plugin = -1 (NON 0: 0 = Left Mouse). L'hotkey reale e' gestita dall'MCM. Poi riavvia SKSE.
 
 $mcmSettings = "D:\SteamLibrary\steamapps\common\Skyrim Special Edition\Data\MCM\Settings\DragonbornsBestiaryMCM.ini"
 $iniPaths = @(
@@ -34,7 +34,7 @@ if ($system -eq "false") { $system = "0" }
 
 $out = @"
 [General]
-iKeycode=0
+iKeycode=-1
 iBestiaryWidget_X = $x
 iBestiaryWidget_Y = $y
 iBestiaryWidgetScale = $scale

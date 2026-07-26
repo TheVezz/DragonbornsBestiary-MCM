@@ -53,8 +53,10 @@ Function ApplyHotkey()
 
 	_hotkey = GetModSettingInt("iKeycode:General")
 
-	; 0 = legacy unbound; 1 = Escape (often pressed intending unbound)
-	if _hotkey == 0 || _hotkey == 1
+	; 0 = Left Mouse in many DXScanCode tables (Bestiary plugin!); never keep it.
+	; 1 = Escape (often pressed intending unbound in MCM keymap).
+	; 256-265 = mouse buttons (LMB..wheel) — reject accidental MCM click-bind.
+	if _hotkey <= 0 || _hotkey == 1 || (_hotkey >= 256 && _hotkey <= 265)
 		_hotkey = -1
 		SetModSettingInt("iKeycode:General", -1)
 	endif
@@ -80,9 +82,10 @@ Function SyncIni()
 	float widgetScale = GetModSettingFloat("fBestiaryWidgetScale:General")
 	string tutorial = GetModSettingString("sTutorialMessage:General")
 
-	; Plugin hotkey off (0). MCM owns the real hotkey via RegisterForKey.
+	; Plugin hotkey OFF = -1 (NOT 0 — 0 is Left Mouse Button for this plugin).
+	; MCM owns the real hotkey via RegisterForKey.
 	string outText = "[General]\n"
-	outText += "iKeycode=0\n"
+	outText += "iKeycode=-1\n"
 	outText += "iBestiaryWidget_X = " + (widgetX as string) + "\n"
 	outText += "iBestiaryWidget_Y = " + (widgetY as string) + "\n"
 	outText += "iBestiaryWidgetScale = " + FormatScale(widgetScale) + "\n"

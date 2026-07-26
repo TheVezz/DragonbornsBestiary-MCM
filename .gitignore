@@ -1,16 +1,30 @@
 # Local / OS
 .DS_Store
 Thumbs.db
+desktop.ini
 *.user
 *.suo
+*~
 
 # Editor
 .vscode/
 .idea/
 *.code-workspace
+*.swp
 
 # Vortex / deploy leftovers
 *.vortex_backup
 
+# Release archives (build locally / upload to Nexus — not in git)
+dist/
+*.7z
+*.zip
+*.rar
+
 # Optional local compiler overrides
 local.ps1
+
+# Papyrus / temp
+*.pas
+*.tmp
+*.log
