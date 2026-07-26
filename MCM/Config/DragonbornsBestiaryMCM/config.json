@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Exit-9B/MCM-Helper/main/docs/config.schema.json",
+  "modName": "DragonbornsBestiaryMCM",
+  "displayName": "Dragonborn's Bestiary",
+  "minMcmVersion": 13,
+  "pluginRequirements": ["DragonbornsBestiaryMCM.esp"],
+  "cursorFillMode": "topToBottom",
+  "pages": [
+    {
+      "pageDisplayName": "$DBMCM_Page_Controls",
+      "cursorFillMode": "topToBottom",
+      "content": [
+        {
+          "text": "$DBMCM_Header_Hotkey",
+          "type": "header"
+        },
+        {
+          "id": "iKeycode:General",
+          "text": "$DBMCM_Hotkey",
+          "help": "$DBMCM_Hotkey_Help",
+          "type": "keymap",
+          "ignoreConflicts": true,
+          "valueOptions": {
+            "sourceType": "ModSettingInt"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$DBMCM_Page_Widget",
+      "cursorFillMode": "topToBottom",
+      "content": [
+        {
+          "text": "$DBMCM_Header_Widget",
+          "type": "header"
+        },
+        {
+          "id": "iEnableWidget:General",
+          "text": "$DBMCM_EnableWidget",
+          "help": "$DBMCM_EnableWidget_Help",
+          "type": "toggle",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "iBestiaryWidget_X:General",
+          "text": "$DBMCM_WidgetX",
+          "help": "$DBMCM_WidgetX_Help",
+          "type": "slider",
+          "valueOptions": {
+            "min": 0,
+            "max": 2000,
+            "step": 10,
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iBestiaryWidget_Y:General",
+          "text": "$DBMCM_WidgetY",
+          "help": "$DBMCM_WidgetY_Help",
+          "type": "slider",
+          "valueOptions": {
+            "min": 0,
+            "max": 1200,
+            "step": 10,
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "fBestiaryWidgetScale:General",
+          "text": "$DBMCM_WidgetScale",
+          "help": "$DBMCM_WidgetScale_Help",
+          "type": "slider",
+          "valueOptions": {
+            "min": 0.1,
+            "max": 2.0,
+            "step": 0.1,
+            "formatString": "{0.1}",
+            "sourceType": "ModSettingFloat"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$DBMCM_Page_MenuText",
+      "cursorFillMode": "topToBottom",
+      "content": [
+        {
+          "text": "$DBMCM_Header_SystemMenu",
+          "type": "header"
+        },
+        {
+          "id": "iEnableSystemMenuOption:General",
+          "text": "$DBMCM_SystemMenu",
+          "help": "$DBMCM_SystemMenu_Help",
+          "type": "toggle",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "type": "empty"
+        },
+        {
+          "text": "$DBMCM_Header_Tutorial",
+          "type": "header"
+        },
+        {
+          "id": "sTutorialMessage:General",
+          "text": "$DBMCM_Tutorial",
+          "help": "$DBMCM_Tutorial_Help",
+          "type": "input",
+          "valueOptions": {
+            "sourceType": "ModSettingString"
+          }
+        },
+        {
+          "type": "empty"
+        },
+        {
+          "text": "$DBMCM_SaveIni",
+          "help": "$DBMCM_SaveIni_Help",
+          "type": "text",
+          "valueOptions": {
+            "value": "$DBMCM_SaveIni_Value"
+          },
+          "action": {
+            "type": "CallFunction",
+            "form": "DragonbornsBestiaryMCM.esp|800",
+            "function": "SyncIniNow",
+            "params": []
+          }
+        }
+      ]
+    }
+  ]
+}

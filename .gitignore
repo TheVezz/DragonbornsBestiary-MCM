@@ -1,0 +1,16 @@
+# Local / OS
+.DS_Store
+Thumbs.db
+*.user
+*.suo
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Vortex / deploy leftovers
+*.vortex_backup
+
+# Optional local compiler overrides
+local.ps1
